@@ -4,6 +4,12 @@
         try {
             embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
+            /* START:: Conversation Routed Listener */
+            window.addEventListener("onEmbeddedMessagingConversationOpened", (event) => {
+                console.log( "Event detail: ", JSON.stringify( event.detail ) );
+            });
+            /* END:: Conversation Routed Listener */
+
             embeddedservice_bootstrap.init(
                 '00DgL00000DFmfx',
                 'Enhanced_Chat_V2',
