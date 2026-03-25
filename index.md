@@ -8,6 +8,17 @@
             window.addEventListener("onEmbeddedMessagingConversationRouted", (event) => {
                 console.log( "Conversation Routed" );
                 console.log( "Event detail: ", JSON.stringify( event.detail ) );
+
+                embeddedservice_bootstrap.utilAPI.sendTextMessage('Transferrred')
+                    .then(() => {
+                        console.log("Message sent");
+                    })
+                    .catch(() => {
+                        console.log("Message not sent");
+                    })
+                    .finally(() => {
+                        console.log("Message sent - finally");
+                    });
             });
             /* END:: Conversation Routed Listener */
 
