@@ -5,7 +5,8 @@
             embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
             /* START:: Conversation Routed Listener */
-            window.addEventListener("onEmbeddedMessagingConversationOpened", (event) => {
+            window.addEventListener("onEmbeddedMessagingConversationRouted", (event) => {
+                console.log( "Conversation Routed" );
                 console.log( "Event detail: ", JSON.stringify( event.detail ) );
             });
             /* END:: Conversation Routed Listener */
