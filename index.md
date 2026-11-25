@@ -1,4 +1,5 @@
-<script type='text/javascript'>
+<html>
+	<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
