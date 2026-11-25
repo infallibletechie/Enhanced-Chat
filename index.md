@@ -1,4 +1,3 @@
-<html>
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
@@ -21,13 +20,13 @@
                     });*/
             });
             /* END:: Conversation Routed Listener */
-
+			
 			embeddedservice_bootstrap.init(
-				'00Dg700000Rtlht',
-				'Chat',
-				'https://ne1795216183744.my.site.com/ESWChat1795635463722',
+				'00DgL000000YRFe',
+				'Enhanced_Chat',
+				'https://infallibletechieagentforce-dev-ed.develop.my.site.com/ESWEnhancedChat1787594397393',
 				{
-					scrt2URL: 'https://ne1795216183744.my.salesforce-scrt.com'
+					scrt2URL: 'https://infallibletechieagentforce-dev-ed.develop.my.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
@@ -35,5 +34,5 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://ne1795216183744.my.site.com/ESWChat1795635463722/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://infallibletechieagentforce-dev-ed.develop.my.site.com/ESWEnhancedChat1787594397393/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </html>
