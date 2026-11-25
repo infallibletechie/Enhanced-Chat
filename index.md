@@ -4,23 +4,12 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-            /* START:: Conversation Routed Listener */
-            window.addEventListener("onEmbeddedMessagingPreChatSubmitted", (event) => {
-                console.log( "Conversation Routed" );
-                console.log( "Event detail: ", JSON.stringify( event.detail ) );
-
-                /*embeddedservice_bootstrap.utilAPI.sendTextMessage('Transferrred')
-                    .then(() => {
-                        console.log("Message sent");
-                    })
-                    .catch(() => {
-                        console.log("Message not sent");
-                    })
-                    .finally(() => {
-                        console.log("Message sent - finally");
-                    });*/
-            });
-            /* END:: Conversation Routed Listener */
+            ["onEmbeddedMessagingReady",
+			 "onEmbeddedMessagingPreChatLoaded",
+			 "onEmbeddedMessagingPreChatSubmitted",
+			 "onEmbeddedMessagingConversationStarted"].forEach(name =>
+			  window.addEventListener(name, e => console.log(name, e.detail))
+			);
 			
 			embeddedservice_bootstrap.init(
 				'00DgL000000YRFe',
