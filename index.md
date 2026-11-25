@@ -22,7 +22,7 @@
 			
 			    console.log("First bot message sent. Prompt was:", prompt);
 			    console.log("Event detail:", e.detail);   // SSE payload
-			    embeddedservice_bootstrap.utilAPI.sendTextMessage("Text")
+			    embeddedservice_bootstrap.utilAPI.sendTextMessage(prompt)
 			      .then(() => {
 			        console.log('Message Sent');
 			      }).catch(() => {
