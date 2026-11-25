@@ -4,12 +4,12 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-            ["onEmbeddedMessagingReady",
-			 "onEmbeddedMessagingPreChatLoaded",
-			 "onEmbeddedMessagingPreChatSubmitted",
-			 "onEmbeddedMessagingConversationStarted"].forEach(name =>
-			  window.addEventListener(name, e => console.log(name, e.detail))
-			);
+            window.addEventListener("message", (e) => {
+			    if (e.data && e.data.source === "prechat") {
+			        console.log("from:", e.origin, "value:", e.data.value);
+			        // e.g. window.userPrompt = e.data.value["How can I help you?"];
+			    }
+			});
 			
 			embeddedservice_bootstrap.init(
 				'00DgL000000YRFe',
