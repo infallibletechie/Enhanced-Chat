@@ -11,14 +11,22 @@
 				window.addEventListener("message", (e) => {
 				    if (e.origin !== CHAT_ORIGIN || e.data?.source !== "prechat") return;
 				    const prompt = e.data.value["How can I help you?"];
-				    try { sessionStorage.setItem(KEY, prompt); } catch (err) { /* storage blocked */ }
+				    try { 
+						sessionStorage.setItem(KEY, prompt); 
+					} catch (err) { 
+						console.warn(err);
+					}
 				    window.pendingPrompt = prompt;   // in-memory fallback
 				});
 				
 				// 2. Use it when the first bot message is sent
 				window.addEventListener("onEmbeddedMessagingFirstBotMessageSent", (e) => {
 				    let prompt = window.pendingPrompt;
-				    try { prompt = prompt ?? sessionStorage.getItem(KEY); } catch (err) {}
+				    try { 
+						prompt = prompt ?? sessionStorage.getItem(KEY); 
+					} catch (err) {
+						console.warn(err);
+					}
 				
 				    console.log("First bot message sent. Prompt was:", prompt);
 				    console.log("Event detail:", e.detail);   // SSE payload
@@ -36,7 +44,11 @@
 				["onEmbeddedMessagingConversationClosed", "onEmbeddedMessagingWindowClosed"].forEach(name =>
 				    window.addEventListener(name, () => {
 				        window.pendingPrompt = null;
-				        try { sessionStorage.removeItem(KEY); } catch (err) {}
+				        try { 
+						sessionStorage.removeItem(KEY); 
+						} catch (err) {
+							console.warn(err);
+						}
 				    })
 				);
 				
