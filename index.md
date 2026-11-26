@@ -14,7 +14,7 @@
 				    try { 
 						sessionStorage.setItem(KEY, prompt); 
 					} catch (err) { 
-						console.warn(err);
+						console.warn(JSON.stringify(err));
 					}
 				    window.pendingPrompt = prompt;   // in-memory fallback
 				});
@@ -25,7 +25,7 @@
 				    try { 
 						prompt = prompt ?? sessionStorage.getItem(KEY); 
 					} catch (err) {
-						console.warn(err);
+						console.warn(JSON.stringify(err));
 					}
 				
 				    console.log("First bot message sent. Prompt was:", prompt);
@@ -45,9 +45,9 @@
 				    window.addEventListener(name, () => {
 				        window.pendingPrompt = null;
 				        try { 
-						sessionStorage.removeItem(KEY); 
+							sessionStorage.removeItem(KEY); 
 						} catch (err) {
-							console.warn(err);
+							console.warn(JSON.stringify(err));
 						}
 				    })
 				);
